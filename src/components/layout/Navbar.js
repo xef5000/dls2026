@@ -52,7 +52,7 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link 
-              to="/" 
+              to="/dashboard"
               className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors"
             >
               <Home className="h-4 w-4" />
@@ -147,7 +147,7 @@ const Navbar = () => {
             >
               <div className="flex flex-col space-y-4">
                 <Link 
-                  to="/" 
+                  to="/dashboard"
                   className="flex items-center space-x-2 text-gray-700 hover:text-primary-600 transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
