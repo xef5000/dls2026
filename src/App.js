@@ -52,7 +52,7 @@ function App() {
             endDate: new Date('2026-06-19T23:59:59')
         };
 
-        const GRADES = 13; // K-12
+        const GRADES = 14; // K-12
 
         // --- UTILITY FUNCTIONS (no changes here) ---
         const isSchoolDay = (date, yearInfo) => {
