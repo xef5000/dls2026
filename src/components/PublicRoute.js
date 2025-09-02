@@ -26,7 +26,7 @@ const PublicRoute = ({ children }) => {
 
   if (user) {
     // Redirect to dashboard if user is already authenticated
-    const from = location.state?.from?.pathname || '/'
+    const from = location.state?.from?.pathname || '/dashboard'
     return <Navigate to={from} replace />
   }
 
