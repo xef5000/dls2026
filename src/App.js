@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import ForgotPassword from './pages/ForgotPassword'
+import Landing from './pages/Landing'
 
 function App() {
   return (
@@ -42,9 +43,13 @@ function App() {
               }
             />
 
+            {/* Routes accessible to all users */}
+            <Route path="/" element={<Landing />} />
+            <Route path="/landing" element={<Landing />} />
+
             {/* Protected routes (require authentication) */}
             <Route
-              path="/"
+              path="/dashboard"
               element={
                 <ProtectedRoute>
                   <Dashboard />
@@ -52,15 +57,8 @@ function App() {
               }
             />
 
-            {/* Catch all route - redirect to dashboard */}
-            <Route
-              path="*"
-              element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              }
-            />
+            {/* Catch all route - redirect to landing page */}
+            <Route path="*" element={<Landing />} />
           </Routes>
         </div>
       </Router>
