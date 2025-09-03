@@ -1,40 +1,40 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Calendar, Clock, GraduationCap, TrendingUp } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 import Layout from '../components/layout/Layout'
 import Card from '../components/ui/Card'
 
-const QuickActionCard = ({ title, description, icon: Icon, to, color = 'primary', delay = 0 }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, delay }}
-  >
-    <Link
-      to={to}
-      className="block bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-white/20 hover:shadow-xl transition-all duration-300 group"
-    >
-      <div className="flex items-center space-x-4">
-        <div className={`p-3 rounded-lg bg-gradient-to-r ${
-          color === 'primary' ? 'from-primary-500 to-primary-600' :
-          color === 'secondary' ? 'from-secondary-500 to-secondary-600' :
-          color === 'success' ? 'from-green-500 to-green-600' :
-          'from-purple-500 to-purple-600'
-        } group-hover:scale-110 transition-transform duration-200`}>
-          <Icon className="h-6 w-6 text-white" />
-        </div>
-        <div className="flex-1">
-          <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
-            {title}
-          </h3>
-          <p className="text-sm text-gray-600">{description}</p>
-        </div>
-      </div>
-    </Link>
-  </motion.div>
-)
+// const QuickActionCard = ({ title, description, icon: Icon, to, color = 'primary', delay = 0 }) => (
+//   <motion.div
+//     initial={{ opacity: 0, y: 20 }}
+//     animate={{ opacity: 1, y: 0 }}
+//     transition={{ duration: 0.5, delay }}
+//   >
+//     <Link
+//       to={to}
+//       className="block bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-white/20 hover:shadow-xl transition-all duration-300 group"
+//     >
+//       <div className="flex items-center space-x-4">
+//         <div className={`p-3 rounded-lg bg-gradient-to-r ${
+//           color === 'primary' ? 'from-primary-500 to-primary-600' :
+//           color === 'secondary' ? 'from-secondary-500 to-secondary-600' :
+//           color === 'success' ? 'from-green-500 to-green-600' :
+//           'from-purple-500 to-purple-600'
+//         } group-hover:scale-110 transition-transform duration-200`}>
+//           <Icon className="h-6 w-6 text-white" />
+//         </div>
+//         <div className="flex-1">
+//           <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
+//             {title}
+//           </h3>
+//           <p className="text-sm text-gray-600">{description}</p>
+//         </div>
+//       </div>
+//     </Link>
+//   </motion.div>
+// )
 
 function Dashboard() {
   const { user } = useAuth()
