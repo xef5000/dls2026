@@ -105,7 +105,7 @@ const SchoolProgress = ({ showTitle = true, compact = false }) => {
       endDate: new Date('2026-06-19T23:59:59')
     }
 
-    const GRADES = 14 // K-12
+    const GRADES = 13
 
     // --- UTILITY FUNCTIONS ---
     const isSchoolDay = (date, yearInfo) => {
