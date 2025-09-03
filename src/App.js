@@ -6,6 +6,7 @@ import PublicRoute from './components/PublicRoute'
 
 // Pages
 import Dashboard from './pages/Dashboard'
+import Chat from './pages/Chat'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import ForgotPassword from './pages/ForgotPassword'
@@ -53,6 +54,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/chat"
+              element={
+                <ProtectedRoute>
+                  <Chat />
                 </ProtectedRoute>
               }
             />

@@ -1,13 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { LogIn, Star, Zap } from 'lucide-react'
+import { LogIn, Star, Zap, MessageCircle } from 'lucide-react'
 import Layout from '../components/layout/Layout'
+import SchoolProgress from '../components/SchoolProgress'
 
 const Landing = () => {
   return (
     <Layout>
-      <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-50 via-white to-secondary-50 p-6">
+      <div className="space-y-16">
+        {/* Hero Section */}
+        <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-50 via-white to-secondary-50 p-6 -mx-4 -mt-8">
         {/* Animated background shapes */}
         <motion.div
           animate={{
@@ -84,16 +87,22 @@ const Landing = () => {
             </div>
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0 p-3 bg-white rounded-full shadow-md">
-                <LogIn className="w-6 h-6 text-green-500" />
+                <MessageCircle className="w-6 h-6 text-green-500" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">Easy Access</h3>
+                <h3 className="text-lg font-semibold text-gray-900">Live Chat</h3>
                 <p className="text-gray-600">
-                  Quickly log in to see your personalized dashboard and detailed statistics.
+                  Connect with other students in real-time chat once you create an account.
                 </p>
               </div>
             </div>
           </motion.div>
+        </div>
+        </div>
+
+        {/* School Progress Section */}
+        <div className="py-16">
+          <SchoolProgress showTitle={true} compact={false} />
         </div>
       </div>
     </Layout>

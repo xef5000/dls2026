@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  Home, 
-  User, 
-  LogOut, 
-  Settings, 
-  Menu, 
+import {
+  Home,
+  User,
+  LogOut,
+  Settings,
+  Menu,
   X,
-  GraduationCap
+  GraduationCap,
+  MessageCircle
 } from 'lucide-react'
 import { useAuth } from '../../contexts/AuthContext'
 
@@ -51,13 +52,33 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link 
+            <Link
               to="/dashboard"
               className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors"
             >
               <Home className="h-4 w-4" />
-              <span>Dashboard</span>
+              <span>Home</span>
             </Link>
+
+            {user && (
+              <>
+                <Link
+                  to="/dashboard"
+                  className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors"
+                >
+                  <User className="h-4 w-4" />
+                  <span>Dashboard</span>
+                </Link>
+
+                <Link
+                  to="/chat"
+                  className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  <span>Chat</span>
+                </Link>
+              </>
+            )}
             
             {user ? (
               <div className="relative">
@@ -146,18 +167,40 @@ const Navbar = () => {
               className="md:hidden border-t border-gray-200 py-4"
             >
               <div className="flex flex-col space-y-4">
-                <Link 
-                  to="/dashboard"
+                <Link
+                  to="/"
                   className="flex items-center space-x-2 text-gray-700 hover:text-primary-600 transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <Home className="h-4 w-4" />
-                  <span>Dashboard</span>
+                  <span>Home</span>
                 </Link>
-                
+
+                {user && (
+                  <>
+                    <Link
+                      to="/dashboard"
+                      className="flex items-center space-x-2 text-gray-700 hover:text-primary-600 transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <User className="h-4 w-4" />
+                      <span>Dashboard</span>
+                    </Link>
+
+                    <Link
+                      to="/chat"
+                      className="flex items-center space-x-2 text-gray-700 hover:text-primary-600 transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <MessageCircle className="h-4 w-4" />
+                      <span>Chat</span>
+                    </Link>
+                  </>
+                )}
+
                 {user ? (
                   <>
-                    <div className="flex items-center space-x-2 text-gray-700">
+                    <div className="flex items-center space-x-2 text-gray-700 pl-8">
                       <div className="w-6 h-6 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center text-white text-xs font-medium">
                         {user.email?.charAt(0).toUpperCase()}
                       </div>
