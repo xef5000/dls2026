@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { MessageCircle, User, Settings, BarChart3, Calendar, Clock, FileText, Plus } from 'lucide-react'
+import { MessageCircle, User, Calendar, Clock, FileText, Plus } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 import { usePermissions } from '../components/RoleGuard'
 import Layout from '../components/layout/Layout'

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
@@ -15,7 +14,6 @@ import {
   Image,
   Eye,
   Edit3,
-  Type,
   Heading1,
   Heading2,
   Heading3

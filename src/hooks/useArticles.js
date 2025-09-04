@@ -51,7 +51,7 @@ export const useArticles = (publishedOnly = true) => {
 
   useEffect(() => {
     loadArticles(true)
-  }, [publishedOnly])
+  }, [publishedOnly, loadArticles])
 
   return {
     articles,
