@@ -60,9 +60,12 @@ export const useChat = () => {
   const sendMessage = useCallback(async (content) => {
     if (!user || !content.trim() || sending) return
 
+    // Enforce max length 1000 on client as a safety net
+    const safeContent = content.slice(0, 1000)
+
     setSending(true)
     try {
-      const { data, error } = await chatService.sendMessage(content, user.id)
+      const { data, error } = await chatService.sendMessage(safeContent, user.id)
       if (error) {
         console.error('Error sending message:', error)
         return { success: false, error }

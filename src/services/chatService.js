@@ -37,7 +37,7 @@ export const chatService = {
       .from('messages')
       .insert([
         {
-          content: content.trim(),
+          content: content.trim().slice(0, 1000),
           user_id: userId,
           created_at: new Date().toISOString()
         }

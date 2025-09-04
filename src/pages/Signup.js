@@ -28,6 +28,14 @@ const Signup = () => {
   }
 
   const validateForm = () => {
+    if (formData.email.length > 50) {
+      setError('Email must be 50 characters or less')
+      return false
+    }
+    if (formData.password.length > 30) {
+      setError('Password must be 30 characters or less')
+      return false
+    }
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match')
       return false
@@ -127,6 +135,7 @@ const Signup = () => {
                     name="firstName"
                     type="text"
                     required
+                    maxLength={30}
                     value={formData.firstName}
                     onChange={handleChange}
                     className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
@@ -144,6 +153,7 @@ const Signup = () => {
                   name="lastName"
                   type="text"
                   required
+                  maxLength={30}
                   value={formData.lastName}
                   onChange={handleChange}
                   className="block w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
@@ -166,6 +176,7 @@ const Signup = () => {
                   type="email"
                   autoComplete="email"
                   required
+                  maxLength={50}
                   value={formData.email}
                   onChange={handleChange}
                   className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
@@ -187,6 +198,7 @@ const Signup = () => {
                   name="password"
                   type={showPassword ? 'text' : 'password'}
                   required
+                  maxLength={30}
                   value={formData.password}
                   onChange={handleChange}
                   className="block w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
@@ -219,6 +231,7 @@ const Signup = () => {
                   name="confirmPassword"
                   type={showConfirmPassword ? 'text' : 'password'}
                   required
+                  maxLength={30}
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   className="block w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"

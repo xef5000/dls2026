@@ -28,6 +28,12 @@ const Profile = () => {
     setError('')
     setMessage('')
 
+    if (username.length > 30) {
+      setError('Username must be 30 characters or less.')
+      setLoading(false)
+      return
+    }
+
     // First, update the auth.users table
     const { error: authError } = await supabase.auth.updateUser({
       data: { full_name: username },
@@ -58,6 +64,13 @@ const Profile = () => {
     setLoading(true)
     setError('')
     setMessage('')
+
+    if (email.length > 50) {
+      setError('Email must be 50 characters or less.')
+      setLoading(false)
+      return
+    }
+
     const { error } = await supabase.auth.updateUser({ email })
     if (error) {
       setError(error.message)
@@ -74,6 +87,11 @@ const Profile = () => {
     setMessage('')
     if (password.length < 6) {
         setError('Password must be at least 6 characters long.')
+        setLoading(false)
+        return
+    }
+    if (password.length > 30) {
+        setError('Password must be 30 characters or less.')
         setLoading(false)
         return
     }
@@ -104,8 +122,9 @@ const Profile = () => {
                   id="username"
                   type="text"
                   value={username}
+                  maxLength={30}
                   onChange={(e) => setUsername(e.target.value)}
-                  placeholder="Your username"
+                  placeholder="Your username (max 30 characters)"
                 />
               </div>
               <Button type="submit" disabled={loading}>
@@ -120,8 +139,9 @@ const Profile = () => {
                   id="email"
                   type="email"
                   value={email}
+                  maxLength={50}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email"
+                  placeholder="Your email (max 50 characters)"
                 />
               </div>
               <Button type="submit" disabled={loading}>
@@ -136,8 +156,9 @@ const Profile = () => {
                   id="password"
                   type="password"
                   value={password}
+                  maxLength={30}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="New password (min. 6 characters)"
+                  placeholder="New password (min. 6, max 30 characters)"
                 />
               </div>
               <Button type="submit" disabled={loading}>
