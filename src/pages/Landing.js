@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { LogIn, Star, Zap, MessageCircle } from 'lucide-react'
-import Layout from '../components/layout/Layout'
+import WideLayout from '../components/layout/WideLayout'
 import SchoolProgress from '../components/SchoolProgress'
 
 const Landing = () => {
   return (
-    <Layout>
+    <WideLayout>
       <div className="space-y-16">
         {/* Hero Section */}
         <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 p-6 -mx-4 -mt-8">
@@ -105,7 +105,7 @@ const Landing = () => {
           <SchoolProgress showTitle={true} compact={false} />
         </div>
       </div>
-    </Layout>
+    </WideLayout>
   )
 }
 
