@@ -10,7 +10,7 @@ const Landing = () => {
     <Layout>
       <div className="space-y-16">
         {/* Hero Section */}
-        <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-50 via-white to-secondary-50 p-6 -mx-4 -mt-8">
+        <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 p-6 -mx-4 -mt-8">
         {/* Animated background shapes */}
         <motion.div
           animate={{
