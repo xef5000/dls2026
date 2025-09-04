@@ -52,13 +52,6 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link
-              to="/dashboard"
-              className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors"
-            >
-              <Home className="h-4 w-4" />
-              <span>Home</span>
-            </Link>
 
             {user && (
               <>
