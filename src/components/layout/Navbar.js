@@ -9,7 +9,8 @@ import {
   Menu,
   X,
   GraduationCap,
-  MessageCircle
+  MessageCircle,
+  FileText
 } from 'lucide-react'
 import { useAuth } from '../../contexts/AuthContext'
 
@@ -52,6 +53,21 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
+            <Link
+              to="/"
+              className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors"
+            >
+              <Home className="h-4 w-4" />
+              <span>Home</span>
+            </Link>
+
+            <Link
+              to="/articles"
+              className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors"
+            >
+              <FileText className="h-4 w-4" />
+              <span>Articles</span>
+            </Link>
 
             {user && (
               <>
@@ -159,6 +175,15 @@ const Navbar = () => {
                 >
                   <Home className="h-4 w-4" />
                   <span>Home</span>
+                </Link>
+
+                <Link
+                  to="/articles"
+                  className="flex items-center space-x-2 text-gray-700 hover:text-primary-600 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <FileText className="h-4 w-4" />
+                  <span>Articles</span>
                 </Link>
 
                 {user && (

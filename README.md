@@ -1,6 +1,29 @@
-# Getting Started with Create React App
+# DLS 2026 - Modern School Progress Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive web application for tracking school progress through Grade 12, built with React, Supabase authentication, live chat, and a comprehensive article system.
+
+## Features
+
+- 🎓 **School Progress Tracking**: Monitor your journey through K-12 education
+- 🔐 **User Authentication**: Secure login/signup with Supabase
+- 💬 **Live Chat**: Real-time messaging with infinite scroll
+- 📝 **Article System**: Create, edit, and publish articles with Markdown support
+- 👥 **Role-Based Permissions**: Editor and admin roles for content management
+- 📱 **Responsive Design**: Modern UI that works on all devices
+- 🎨 **Beautiful Animations**: Smooth transitions with Framer Motion
+- 🔄 **Session Persistence**: Stay logged in across browser sessions
+- 🎯 **Protected Routes**: Secure navigation based on authentication status
+
+## Tech Stack
+
+- **Frontend**: React 18, React Router DOM
+- **Authentication**: Supabase
+- **Real-time**: Supabase Realtime Channels
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Markdown**: React Markdown with syntax highlighting
+- **UI Components**: Headless UI
 
 ## Available Scripts
 

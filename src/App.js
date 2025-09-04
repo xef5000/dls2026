@@ -8,6 +8,9 @@ import PublicRoute from './components/PublicRoute'
 // Pages
 import Dashboard from './pages/Dashboard'
 import Chat from './pages/Chat'
+import Articles from './pages/Articles'
+import ArticleDetail from './pages/ArticleDetail'
+import ArticleEditor from './pages/ArticleEditor'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import ForgotPassword from './pages/ForgotPassword'
@@ -51,6 +54,10 @@ function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/landing" element={<Landing />} />
 
+            {/* Public article routes */}
+            <Route path="/articles" element={<Articles />} />
+            <Route path="/articles/:id" element={<ArticleDetail />} />
+
             {/* Protected routes (require authentication) */}
             <Route
               path="/dashboard"
@@ -65,6 +72,24 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Chat />
+                </ProtectedRoute>
+              }
+            />
+
+            {/* Protected article editor routes */}
+            <Route
+              path="/articles/new"
+              element={
+                <ProtectedRoute>
+                  <ArticleEditor />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/articles/:id/edit"
+              element={
+                <ProtectedRoute>
+                  <ArticleEditor />
                 </ProtectedRoute>
               }
             />
