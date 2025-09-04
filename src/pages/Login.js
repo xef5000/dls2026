@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import toast from 'react-hot-toast'
 import { Eye, EyeOff, Mail, Lock, GraduationCap } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 
@@ -8,7 +9,6 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
-  const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   
   const { signIn } = useAuth()
@@ -16,18 +16,20 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setError('')
     setIsLoading(true)
+
+    const toastId = toast.loading('Signing in...')
 
     try {
       const { error } = await signIn(email, password)
       if (error) {
-        setError(error.message)
+        toast.error(error.message, { id: toastId })
       } else {
+        toast.success('Signed in successfully!', { id: toastId })
         navigate('/')
       }
     } catch (err) {
-      setError('An unexpected error occurred')
+      toast.error('An unexpected error occurred.', { id: toastId })
     } finally {
       setIsLoading(false)
     }
@@ -49,7 +51,7 @@ const Login = () => {
       >
         <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-white/20">
           {/* Header */}
-          <div className="text-center">
+          <div className="text-center mb-6">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -61,17 +63,6 @@ const Login = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome back</h2>
             <p className="text-gray-600">Sign in to your DLS 2026 account</p>
           </div>
-
-          {/* Error message */}
-          {error && (
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg text-sm"
-            >
-              {error}
-            </motion.div>
-          )}
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
