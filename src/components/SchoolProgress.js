@@ -96,7 +96,7 @@ const SchoolProgress = ({ showTitle = true, compact = false }) => {
     const semester1 = {
       name: 'Semester 1',
       startDate: new Date('2025-08-26T00:00:00'),
-      endDate: new Date('2026-01-23T23:59:59')
+      endDate: new Date('2026-01-21T23:59:59')
     }
 
     const semester2 = {
